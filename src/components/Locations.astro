@@ -1,0 +1,58 @@
+---
+import locationData from '../data/locations.json';
+import site from '../data/site.json';
+const locations = locationData.items;
+import 'leaflet/dist/leaflet.css';
+---
+<section class="locations section" id="sedi" aria-labelledby="locations-title">
+ <div class="section-heading"><div><p class="eyebrow red">{locationData.eyebrow}</p><h2 id="locations-title">{locationData.title} <em>{locationData.emphasis}</em></h2></div><p>{locationData.intro}</p></div>
+ <p class="locations-note" id="locations-note">{locationData.note}</p>
+ <div class="locations-layout">
+  <ol class="locations-list">{locations.map((location,index)=><li><a class="location-link" data-location={index} href={`https://www.openstreetmap.org/?mlat=${location.lat}&mlon=${location.lng}#map=13/${location.lat}/${location.lng}`} target="_blank" rel="noopener noreferrer"><span class="location-number">{index+1}</span><span><strong>{location.name}</strong><small>{location.area}</small></span><span class="location-indicator" aria-hidden="true">↗</span></a></li>)}</ol>
+  <div class="locations-map-wrap"><div id="locations-map" aria-label="Mappa delle località dell’Accademia" aria-describedby="locations-note"></div><p id="map-status" role="status">Caricamento della mappa… Puoi anche aprire le località dai collegamenti nell’elenco.</p><button class="map-reset" type="button" hidden>Mostra tutte le località</button></div>
+ </div>
+ <noscript><p>Apri una località dall’elenco per visualizzarla su OpenStreetMap.</p></noscript>
+</section>
+<script>
+ import locationData from '../data/locations.json';
+import site from '../data/site.json';
+const locations = locationData.items;
+ const container = document.getElementById('locations-map');
+ const status = document.getElementById('map-status');
+ const reset = document.querySelector<HTMLButtonElement>('.map-reset');
+ async function initMap() {
+  if (!container) return;
+  try {
+   const L = await import('leaflet');
+   const map = L.map(container, {scrollWheelZoom:false});
+   const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:18, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+   const links = [...document.querySelectorAll<HTMLAnchorElement>('.location-link')];
+   const markers = locations.map((location,index)=>{
+    const icon = L.divIcon({className:'location-marker',html:`<span>${index+1}</span>`,iconSize:[34,34],iconAnchor:[17,17]});
+    const popup = document.createElement('div');
+    const heading = document.createElement('strong'); heading.textContent = location.name;
+    const note = document.createElement('p'); note.textContent = 'Posizione indicativa della località. Per l’indirizzo dell’aula contatta la segreteria.';
+    const contact = document.createElement('a'); contact.href='tel:'+site.contacts[0].phone.replace(/[^+\d]/g,''); contact.textContent='Chiama la segreteria';
+    popup.append(heading,note,contact);
+    const marker = L.marker([location.lat,location.lng],{icon,title:location.name,alt:location.name}).addTo(map).bindPopup(popup);
+    marker.on('popupopen',()=>links.forEach((link,i)=>{link.classList.toggle('selected',i===index);if(i===index)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}));
+    return marker;
+   });
+   const bounds = L.latLngBounds(locations.map(location=>[location.lat,location.lng]));
+   const showAll = ()=>{map.fitBounds(bounds,{padding:[36,36],maxZoom:11,animate:false});map.closePopup();links.forEach(link=>{link.classList.remove('selected');link.removeAttribute('aria-current');});};
+   if(locations.length)showAll();else map.setView([45.71,11.9],10);
+   links.forEach((link,index)=>link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();map.setView(markers[index].getLatLng(),12,{animate:false});markers[index].openPopup();container.scrollIntoView({block:'nearest',behavior:'instant'});}));
+   if(reset&&locations.length){reset.hidden=false;reset.addEventListener('click',showAll);}
+   if(status) status.hidden=true;
+   tiles.on('tileerror',()=>{if(status){status.hidden=false;status.textContent='La cartografia non è disponibile. Puoi riprovare aggiornando la pagina; l’elenco delle località resta consultabile.';}});
+   tiles.on('tileload',()=>{if(status)status.hidden=true;});
+   new ResizeObserver(()=>map.invalidateSize()).observe(container);
+  } catch {
+   if(status)status.textContent='La mappa non è disponibile. Apri le località dai collegamenti nell’elenco.';
+  }
+ }
+ if(container){const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();initMap();}},{rootMargin:'300px'});observer.observe(container);}
+</script>
+<style is:global>
+ .locations{background:#efeee8}.locations-note{color:#626259;font-size:14px;max-width:800px;margin:-15px 0 35px}.locations-layout{display:grid;grid-template-columns:minmax(265px,1fr) minmax(0,2fr);border:1px solid #d1cec5}.locations-list{list-style:none;padding:0;margin:0}.locations-list li+li{border-top:1px solid #d1cec5}.location-link{display:flex;align-items:center;gap:15px;padding:18px 22px;min-height:78px;background:var(--paper)}.location-link:hover,.location-link.selected{background:#e9ded3}.location-number{display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;border:1px solid var(--red);color:var(--red);border-radius:50%;font-size:13px}.location-link strong{font-size:15px;font-weight:500;display:block}.location-link small{display:block;font-size:12px;color:#67665e;margin-top:5px}.location-indicator{color:var(--red);margin-left:auto}.locations-map-wrap{position:relative;min-width:0;border-left:1px solid #d1cec5;display:flex;flex-direction:column}#locations-map{min-height:480px;flex:1;background:#dfded4;z-index:0;font-family:'DM Sans',sans-serif}.location-marker{background:var(--red);border:2px solid white;border-radius:50%;color:white;box-shadow:0 2px 6px #0005;display:grid;place-items:center;font-size:14px;font-weight:600}.map-reset{position:absolute;top:12px;right:12px;z-index:1;background:var(--paper);border:1px solid #c8c4bb;padding:11px 14px;color:var(--ink);cursor:pointer;font-size:13px}.map-reset[hidden],#map-status[hidden]{display:none}#map-status{background:var(--paper);padding:15px;margin:0;font-size:14px}.leaflet-popup-content{font-size:14px;line-height:1.5}.leaflet-popup-content p{margin:12px 0}.leaflet-popup-content a{color:var(--red);text-decoration:underline}.locations .leaflet-control-attribution{font-size:11px}.locations .leaflet-control-attribution a{color:#333}@media(max-width:800px){.locations-layout{grid-template-columns:1fr}.locations-map-wrap{border-left:0;border-top:1px solid #d1cec5}#locations-map{height:430px;min-height:430px;flex:auto}.location-link{padding:14px 18px;min-height:72px}}
+</style>

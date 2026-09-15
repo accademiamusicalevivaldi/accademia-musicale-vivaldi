@@ -1,0 +1,574 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "accademiamusicalevivaldi/accademia-musicale-vivaldi",
+    "branch": "main",
+    "base_url": "https://www.accademiamusicalevivaldi.com",
+    "auth_endpoint": "api/auth"
+  },
+  "locale": "it",
+  "site_url": "https://www.accademiamusicalevivaldi.com",
+  "display_url": "https://www.accademiamusicalevivaldi.com",
+  "media_folder": "public/uploads",
+  "public_folder": "/uploads",
+  "collections": [
+    {
+      "name": "settings",
+      "label": "Impostazioni del sito",
+      "files": [
+        {
+          "name": "home",
+          "label": "Homepage",
+          "file": "src/data/home.json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "subtitle",
+              "label": "Sottotitolo",
+              "widget": "text"
+            },
+            {
+              "name": "image",
+              "label": "Foto di copertina",
+              "widget": "r2-file",
+              "kind": "image",
+              "required": false
+            },
+            {
+              "name": "imageAlt",
+              "label": "Descrizione della foto",
+              "widget": "string"
+            },
+            {
+              "name": "video",
+              "label": "Video di copertina",
+              "widget": "r2-file",
+              "kind": "video",
+              "required": false
+            },
+            {
+              "name": "buttonLabel",
+              "label": "Testo pulsante",
+              "widget": "string"
+            },
+            {
+              "name": "buttonHref",
+              "label": "Destinazione pulsante",
+              "widget": "string"
+            },
+            {
+              "name": "emphasis",
+              "label": "Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "eyebrow",
+              "label": "Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "bottom",
+              "label": "Testo sotto la copertina",
+              "widget": "string"
+            },
+            {
+              "name": "welcomeEyebrow",
+              "label": "Presentazione — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "welcomeTitle",
+              "label": "Presentazione — Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "welcomeEmphasis",
+              "label": "Presentazione — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "welcomeParagraphs",
+              "label": "Paragrafi di presentazione",
+              "widget": "list",
+              "field": {
+                "name": "text",
+                "label": "Testo",
+                "widget": "text"
+              }
+            },
+            {
+              "name": "coursesEyebrow",
+              "label": "Corsi — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "coursesTitle",
+              "label": "Corsi — Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "coursesEmphasis",
+              "label": "Corsi — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "coursesIntro",
+              "label": "Corsi — Introduzione",
+              "widget": "text"
+            },
+            {
+              "name": "coursesNote",
+              "label": "Corsi — Nota",
+              "widget": "text"
+            },
+            {
+              "name": "quote",
+              "label": "Citazione",
+              "widget": "string"
+            },
+            {
+              "name": "quoteEmphasis",
+              "label": "Citazione — Seconda frase",
+              "widget": "string"
+            },
+            {
+              "name": "newsEyebrow",
+              "label": "Notizie — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "newsTitle",
+              "label": "Notizie — Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "newsEmphasis",
+              "label": "Notizie — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "documentsEyebrow",
+              "label": "Documenti — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "documentsTitle",
+              "label": "Documenti — Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "documentsEmphasis",
+              "label": "Documenti — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "documentsIntro",
+              "label": "Documenti — Introduzione",
+              "widget": "text"
+            },
+            {
+              "name": "contactEyebrow",
+              "label": "Contatti — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "contactTitle",
+              "label": "Contatti — Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "contactEmphasis",
+              "label": "Contatti — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "contactIntro",
+              "label": "Contatti — Introduzione",
+              "widget": "text"
+            },
+            {
+              "name": "galleryEyebrow",
+              "label": "Gallerie — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "galleryTitle",
+              "label": "Gallerie — Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "galleryIntro",
+              "label": "Gallerie — Introduzione",
+              "widget": "text"
+            },
+            {
+              "name": "galleryEmpty",
+              "label": "Gallerie — Testo in assenza di contenuti",
+              "widget": "string"
+            },
+            {
+              "name": "newsEmpty",
+              "label": "Notizie — Testo in assenza di contenuti",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "name": "site",
+          "label": "Contatti e dati del sito",
+          "file": "src/data/site.json",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Nome",
+              "widget": "string"
+            },
+            {
+              "name": "domain",
+              "label": "Dominio",
+              "widget": "string"
+            },
+            {
+              "name": "description",
+              "label": "Descrizione",
+              "widget": "text"
+            },
+            {
+              "name": "email",
+              "label": "Email",
+              "widget": "string"
+            },
+            {
+              "name": "city",
+              "label": "Località",
+              "widget": "string"
+            },
+            {
+              "name": "contacts",
+              "label": "Contatti",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "name",
+                  "label": "Nome",
+                  "widget": "string"
+                },
+                {
+                  "name": "phone",
+                  "label": "Telefono",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "legalName",
+              "label": "Titolare",
+              "widget": "string"
+            },
+            {
+              "name": "legalAddress",
+              "label": "Indirizzo del titolare",
+              "widget": "string"
+            },
+            {
+              "name": "vat",
+              "label": "Partita IVA",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "name": "courses",
+          "label": "Corsi",
+          "file": "src/data/courses.json",
+          "fields": [
+            {
+              "name": "items",
+              "label": "Elementi",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Titolo",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Descrizione",
+                  "widget": "text"
+                },
+                {
+                  "name": "icon",
+                  "label": "Icona",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "locations",
+          "label": "Sedi e mappa",
+          "file": "src/data/locations.json",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "title",
+              "label": "Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "emphasis",
+              "label": "Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "intro",
+              "label": "Introduzione",
+              "widget": "text"
+            },
+            {
+              "name": "note",
+              "label": "Nota",
+              "widget": "text"
+            },
+            {
+              "name": "items",
+              "label": "Elementi",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "name",
+                  "label": "Nome",
+                  "widget": "string"
+                },
+                {
+                  "name": "area",
+                  "label": "Comune e provincia",
+                  "widget": "string"
+                },
+                {
+                  "name": "lat",
+                  "label": "Latitudine",
+                  "widget": "number",
+                  "value_type": "float"
+                },
+                {
+                  "name": "lng",
+                  "label": "Longitudine",
+                  "widget": "number",
+                  "value_type": "float"
+                },
+                {
+                  "name": "source",
+                  "label": "Fonte coordinate",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "privacy",
+          "label": "Privacy Policy",
+          "file": "src/data/privacy.json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Titolo",
+              "widget": "string"
+            },
+            {
+              "name": "updated",
+              "label": "Ultimo aggiornamento",
+              "widget": "string"
+            },
+            {
+              "name": "body",
+              "label": "Informativa",
+              "widget": "markdown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "notizie",
+      "label": "Notizie",
+      "folder": "src/content/notizie",
+      "create": true,
+      "extension": "json",
+      "format": "json",
+      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
+      "summary": "{{title}}",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Titolo",
+          "widget": "string"
+        },
+        {
+          "name": "date",
+          "label": "Data",
+          "widget": "datetime",
+          "date_format": "DD/MM/YYYY",
+          "time_format": false,
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "name": "draft",
+          "label": "Bozza (disattiva per pubblicare)",
+          "widget": "boolean",
+          "default": true
+        },
+        {
+          "name": "excerpt",
+          "label": "Riassunto",
+          "widget": "text"
+        },
+        {
+          "name": "cover",
+          "label": "Copertina",
+          "widget": "r2-file",
+          "kind": "image",
+          "required": false
+        },
+        {
+          "name": "coverAlt",
+          "label": "Descrizione copertina",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "body",
+          "label": "Testo",
+          "widget": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "gallerie",
+      "label": "Gallerie",
+      "folder": "src/content/gallerie",
+      "create": true,
+      "extension": "json",
+      "format": "json",
+      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
+      "summary": "{{title}}",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Titolo",
+          "widget": "string"
+        },
+        {
+          "name": "date",
+          "label": "Data",
+          "widget": "datetime",
+          "date_format": "DD/MM/YYYY",
+          "time_format": false,
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "name": "draft",
+          "label": "Bozza (disattiva per pubblicare)",
+          "widget": "boolean",
+          "default": true
+        },
+        {
+          "name": "location",
+          "label": "Località",
+          "widget": "string"
+        },
+        {
+          "name": "description",
+          "label": "Descrizione",
+          "widget": "text"
+        },
+        {
+          "name": "cover",
+          "label": "Copertina",
+          "widget": "r2-file",
+          "kind": "image",
+          "required": false
+        },
+        {
+          "name": "photos",
+          "label": "Fotografie",
+          "widget": "list",
+          "summary": "{{fields.alt}}",
+          "fields": [
+            {
+              "name": "url",
+              "label": "Foto",
+              "widget": "r2-file",
+              "kind": "image",
+              "required": true
+            },
+            {
+              "name": "alt",
+              "label": "Descrizione della foto",
+              "widget": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "documenti",
+      "label": "Materiale didattico",
+      "folder": "src/content/documenti",
+      "create": true,
+      "extension": "json",
+      "format": "json",
+      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
+      "summary": "{{title}}",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Titolo",
+          "widget": "string"
+        },
+        {
+          "name": "date",
+          "label": "Data",
+          "widget": "datetime",
+          "date_format": "DD/MM/YYYY",
+          "time_format": false,
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "name": "draft",
+          "label": "Bozza (disattiva per pubblicare)",
+          "widget": "boolean",
+          "default": true
+        },
+        {
+          "name": "category",
+          "label": "Categoria",
+          "widget": "string"
+        },
+        {
+          "name": "description",
+          "label": "Descrizione",
+          "widget": "text"
+        },
+        {
+          "name": "file",
+          "label": "Documento PDF",
+          "widget": "r2-file",
+          "kind": "pdf",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

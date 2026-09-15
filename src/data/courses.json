@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "Tasti",
+      "description": "Pianoforte · Tastiera · Fisarmonica",
+      "icon": "/images/strumenti/pianoforte.png"
+    },
+    {
+      "title": "Corde",
+      "description": "Chitarra classica ed elettrica · Violino · Basso",
+      "icon": "/images/strumenti/chitarra.png"
+    },
+    {
+      "title": "Fiati",
+      "description": "Flauto traverso · Clarinetto · Sax · Tromba",
+      "icon": "/images/strumenti/sax.png"
+    },
+    {
+      "title": "Voce e ritmo",
+      "description": "Canto moderno · Percussioni",
+      "icon": "/images/strumenti/batteria.png"
+    }
+  ]
+}

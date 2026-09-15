@@ -1,0 +1,58 @@
+{
+  "eyebrow": "LA MUSICA VICINO A TE",
+  "title": "Le nostre",
+  "emphasis": "sedi.",
+  "intro": "Tra Treviso, Padova e Vicenza. Scopri le località in cui insegniamo.",
+  "note": "I marker indicano le località, non gli indirizzi esatti delle aule. Contatta la segreteria per sapere dove si svolgono le lezioni.",
+  "items": [
+    {
+      "name": "Caselle di Altivole",
+      "area": "Altivole · Treviso",
+      "lat": 45.7438,
+      "lng": 11.9808,
+      "source": "https://www.italiamappata.it/veneto/tv/2963-caselle/"
+    },
+    {
+      "name": "Salvatronda",
+      "area": "Castelfranco Veneto · Treviso",
+      "lat": 45.67448,
+      "lng": 11.9766,
+      "source": "https://mapcarta.com/18682890"
+    },
+    {
+      "name": "Villa d’Asolo",
+      "area": "Asolo · Treviso",
+      "lat": 45.77179,
+      "lng": 11.90074,
+      "source": "https://mapcarta.com/30244036"
+    },
+    {
+      "name": "Casella d’Asolo",
+      "area": "Asolo · Treviso",
+      "lat": 45.78957,
+      "lng": 11.92079,
+      "source": "https://mapcarta.com/N64778673"
+    },
+    {
+      "name": "Onara",
+      "area": "Tombolo · Padova",
+      "lat": 45.62677,
+      "lng": 11.82027,
+      "source": "https://mapcarta.com/18689708"
+    },
+    {
+      "name": "Cassola",
+      "area": "Vicenza",
+      "lat": 45.7328,
+      "lng": 11.79842,
+      "source": "https://mapcarta.com/W162957305"
+    },
+    {
+      "name": "Laghi di Cittadella",
+      "area": "Cittadella · Padova",
+      "lat": 45.67765,
+      "lng": 11.75612,
+      "source": "https://mapcarta.com/18696214"
+    }
+  ]
+}

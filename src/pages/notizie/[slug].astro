@@ -1,0 +1,6 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';import {news,formatDate} from '../../lib/collections';import {renderMarkdown} from '../../lib/content.mjs';
+export function getStaticPaths(){return news.map(item=>({params:{slug:item.slug},props:{item}}));}
+const {item}=Astro.props;
+---
+<Layout title={`${item.title} — Accademia Vivaldi`} description={item.excerpt}><article class="section page-content"><a class="text-link" href="/notizie/">← Tutte le notizie</a><p class="eyebrow red article-date">{formatDate(item.date)}</p><h1>{item.title}</h1>{item.cover&&<img class="article-cover" src={item.cover} alt={item.coverAlt||''}/>}<div class="prose" set:html={renderMarkdown(item.body)}/></article></Layout>

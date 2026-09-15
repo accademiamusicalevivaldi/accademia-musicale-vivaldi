@@ -1,0 +1,12 @@
+name = "accademia-musicale-vivaldi"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-09-15"
+
+[vars]
+APP_ORIGIN = "https://www.accademiamusicalevivaldi.com"
+GITHUB_REPO = "accademiamusicalevivaldi/accademia-musicale-vivaldi"
+GITHUB_BRANCH = "main"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "accademia-musicale-vivaldi"

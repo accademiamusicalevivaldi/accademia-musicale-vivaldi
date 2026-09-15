@@ -1,0 +1,4 @@
+---
+import Layout from '../layouts/SiteLayout.astro';import privacy from '../data/privacy.json';import {renderMarkdown} from '../lib/content.mjs';
+---
+<Layout title="Privacy Policy — Accademia Vivaldi"><article class="section page-content article"><p class="eyebrow red">I tuoi dati</p><h1>{privacy.title}</h1><p>Ultimo aggiornamento: {privacy.updated}</p><div class="prose" set:html={renderMarkdown(privacy.body)} /></article></Layout>

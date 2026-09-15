@@ -1,0 +1,4 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';import {documents} from '../../lib/collections';
+---
+<Layout title="Materiale didattico e PDF — Accademia Vivaldi"><section class="section page-content"><p class="eyebrow red">PER GLI ALLIEVI</p><h1>Materiale <em>didattico.</em></h1><p>Documenti e materiali PDF messi a disposizione dai maestri.</p>{documents.length?<div class="document-list">{documents.map(item=><article><div><span class="small-label">PDF{item.category?` · ${item.category}`:''}</span><h3>{item.title}</h3><p>{item.description}</p></div><a class="button outline" href={item.file} download>Scarica PDF ↓</a></article>)}</div>:<div class="empty-state">Non ci sono ancora documenti pubblicati. Per informazioni contatta la segreteria.</div>}</section></Layout>

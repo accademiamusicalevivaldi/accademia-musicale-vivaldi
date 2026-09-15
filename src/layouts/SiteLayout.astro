@@ -1,0 +1,15 @@
+---
+import '../styles/global.css';import site from '../data/site.json';
+const {title=site.name,description=site.description}=Astro.props;
+---
+<!doctype html><html lang="it"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><link rel="canonical" href={new URL(Astro.url.pathname,site.domain)}/><link rel="icon" href="/favicon.svg"/><title>{title}</title></head><body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+<header class="header"><a class="brand" href="/" aria-label="Accademia Vivaldi, homepage"><img src="/images/logo.png" alt={site.name} width="124" height="124"/></a><button class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button><nav id="nav" aria-label="Navigazione principale"><a href="/#accademia">Accademia</a><a href="/#corsi">Corsi</a><a href="/notizie/">Notizie</a><a href="/gallerie/">Gallerie</a><a href="/documenti/">Documenti</a><a href="/#sedi">Sedi</a><a class="nav-contact" href="/#contatti">Parliamone <span aria-hidden="true">↗</span></a></nav></header>
+<main id="contenuto"><slot/></main>
+<footer><span>{site.name.toUpperCase()}</span><div class="footer-contacts"><a href={`mailto:${site.email}`}>{site.email}</a>{site.contacts.map(contact=><a href={'tel:'+contact.phone.replace(/[^+\d]/g,'')} aria-label={`${contact.name}: ${contact.phone}`}>{contact.phone}</a>)}</div><div class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/admin/">Amministrazione</a><a href="/">Torna alla homepage</a></div><small>{site.legalName} · P. IVA {site.vat}</small></footer>
+<script>
+const toggle=document.querySelector<HTMLButtonElement>('.menu-toggle');const nav=document.querySelector('#nav');
+toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav?.classList.toggle('open',open);});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle?.setAttribute('aria-expanded','false');nav.classList.remove('open');}));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){toggle?.setAttribute('aria-expanded','false');nav?.classList.remove('open');}});
+</script></body></html>

@@ -1,0 +1,33 @@
+---
+import cover from '../data/home.json';
+---
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero-media" src={cover.image} alt={cover.imageAlt} fetchpriority="high" />
+  {cover.video && <video class="hero-media cover-video" muted loop playsinline preload="none" poster={cover.image} data-src={cover.video} aria-label="Video di copertina dell’Accademia"></video>}
+  <div class="hero-shade"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">{cover.eyebrow}</p>
+    <h1 id="hero-title">{cover.title} <em>{cover.emphasis}</em></h1>
+    <p class="intro">{cover.subtitle}</p>
+    <a class="button light" href={cover.buttonHref}>{cover.buttonLabel}<span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="hero-bottom"><span>{cover.bottom}</span><a href="#accademia">Entra in Accademia <span aria-hidden="true">↓</span></a></div>
+  {cover.video && <button class="video-toggle" hidden>Pausa video</button>}
+</section>
+<script>
+ const video = document.querySelector<HTMLVideoElement>('.cover-video');
+ const button = document.querySelector<HTMLButtonElement>('.video-toggle');
+ if(video && button) {
+   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+   const start = async () => {
+     if(reduce.matches) { video.pause(); video.style.opacity='0'; button.hidden=true; return; }
+     video.src ||= video.dataset.src || '';
+     try { await video.play(); video.style.opacity='1'; button.hidden=false; button.textContent='Pausa video'; }
+     catch { video.style.opacity='0'; button.hidden=true; }
+   };
+   video.addEventListener('error',()=>{video.style.opacity='0';button.hidden=true;});
+   button.addEventListener('click', async()=>{if(video.paused) await start();else {video.pause();button.textContent='Riprendi video';}});
+   reduce.addEventListener('change', start);
+   start();
+ }
+</script>
