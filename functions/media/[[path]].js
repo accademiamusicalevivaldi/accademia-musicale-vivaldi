@@ -15,7 +15,9 @@ export async function onRequest({request,env}){
    if(!Number.isSafeInteger(start)||!Number.isSafeInteger(end)||start>end||start>=meta.size)return new Response(null,{status:416,headers:{'Content-Range':`bytes */${meta.size}`}});
    options={range:{offset:start,length:end-start+1}};headers.set('Content-Range',`bytes ${start}-${end}/${meta.size}`);headers.set('Content-Length',String(end-start+1));status=206;
   }else headers.set('Content-Length',String(meta.size));
-  if(key.endsWith('.pdf'))headers.set('Content-Disposition',`inline; filename="materiale-didattico.pdf"`);
+  if(key.endsWith('.pdf')) {
+  headers.set('Content-Disposition', 'inline; filename="materiale-didattico.pdf"');
+}
   if(request.method==='HEAD')return new Response(null,{headers});
   const object=await env.MEDIA.get(key,options);if(!object)return new Response('File non trovato',{status:404});return new Response(object.body,{status,headers});
  }catch{return new Response('Archivio temporaneamente non disponibile',{status:502});}
