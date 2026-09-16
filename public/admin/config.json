@@ -22,33 +22,14 @@
           "file": "src/data/home.json",
           "fields": [
             {
-              "name": "title",
-              "label": "Titolo",
+              "name": "coursesTitle",
+              "label": "Corsi — Titolo",
               "widget": "string"
             },
             {
-              "name": "subtitle",
-              "label": "Sottotitolo",
-              "widget": "text"
-            },
-            {
-              "name": "image",
-              "label": "Foto di copertina",
-              "widget": "r2-file",
-              "kind": "image",
-              "required": false
-            },
-            {
-              "name": "imageAlt",
-              "label": "Descrizione della foto",
+              "name": "documentsTitle",
+              "label": "Documenti — Titolo",
               "widget": "string"
-            },
-            {
-              "name": "video",
-              "label": "Video di copertina",
-              "widget": "r2-file",
-              "kind": "video",
-              "required": false
             },
             {
               "name": "buttonLabel",
@@ -56,38 +37,13 @@
               "widget": "string"
             },
             {
-              "name": "buttonHref",
-              "label": "Destinazione pulsante",
+              "name": "newsTitle",
+              "label": "Notizie — Titolo",
               "widget": "string"
             },
             {
-              "name": "emphasis",
-              "label": "Parole in rosso",
-              "widget": "string"
-            },
-            {
-              "name": "eyebrow",
-              "label": "Sopratitolo",
-              "widget": "string"
-            },
-            {
-              "name": "bottom",
-              "label": "Testo sotto la copertina",
-              "widget": "string"
-            },
-            {
-              "name": "welcomeEyebrow",
-              "label": "Presentazione — Sopratitolo",
-              "widget": "string"
-            },
-            {
-              "name": "welcomeTitle",
-              "label": "Presentazione — Titolo",
-              "widget": "string"
-            },
-            {
-              "name": "welcomeEmphasis",
-              "label": "Presentazione — Parole in rosso",
+              "name": "galleryTitle",
+              "label": "Gallerie — Titolo",
               "widget": "string"
             },
             {
@@ -101,13 +57,58 @@
               }
             },
             {
+              "name": "welcomeEyebrow",
+              "label": "Presentazione — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "contactEyebrow",
+              "label": "Contatti — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "eyebrow",
+              "label": "Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "coursesNote",
+              "label": "Corsi — Nota",
+              "widget": "text"
+            },
+            {
+              "name": "bottom",
+              "label": "Testo sotto la copertina",
+              "widget": "string"
+            },
+            {
+              "name": "contactIntro",
+              "label": "Contatti — Introduzione",
+              "widget": "text"
+            },
+            {
+              "name": "imageAlt",
+              "label": "Descrizione della foto",
+              "widget": "string"
+            },
+            {
+              "name": "newsEmphasis",
+              "label": "Notizie — Parole in rosso",
+              "widget": "string"
+            },
+            {
               "name": "coursesEyebrow",
               "label": "Corsi — Sopratitolo",
               "widget": "string"
             },
             {
-              "name": "coursesTitle",
-              "label": "Corsi — Titolo",
+              "name": "documentsEyebrow",
+              "label": "Documenti — Sopratitolo",
+              "widget": "string"
+            },
+            {
+              "name": "documentsEmphasis",
+              "label": "Documenti — Parole in rosso",
               "widget": "string"
             },
             {
@@ -121,18 +122,13 @@
               "widget": "text"
             },
             {
-              "name": "coursesNote",
-              "label": "Corsi — Nota",
+              "name": "documentsIntro",
+              "label": "Documenti — Introduzione",
               "widget": "text"
             },
             {
-              "name": "quote",
-              "label": "Citazione",
-              "widget": "string"
-            },
-            {
-              "name": "quoteEmphasis",
-              "label": "Citazione — Seconda frase",
+              "name": "welcomeTitle",
+              "label": "Presentazione — Titolo",
               "widget": "string"
             },
             {
@@ -141,38 +137,18 @@
               "widget": "string"
             },
             {
-              "name": "newsTitle",
-              "label": "Notizie — Titolo",
+              "name": "galleryEyebrow",
+              "label": "Gallerie — Sopratitolo",
               "widget": "string"
             },
             {
-              "name": "newsEmphasis",
-              "label": "Notizie — Parole in rosso",
-              "widget": "string"
-            },
-            {
-              "name": "documentsEyebrow",
-              "label": "Documenti — Sopratitolo",
-              "widget": "string"
-            },
-            {
-              "name": "documentsTitle",
-              "label": "Documenti — Titolo",
-              "widget": "string"
-            },
-            {
-              "name": "documentsEmphasis",
-              "label": "Documenti — Parole in rosso",
-              "widget": "string"
-            },
-            {
-              "name": "documentsIntro",
-              "label": "Documenti — Introduzione",
+              "name": "subtitle",
+              "label": "Sottotitolo",
               "widget": "text"
             },
             {
-              "name": "contactEyebrow",
-              "label": "Contatti — Sopratitolo",
+              "name": "quoteEmphasis",
+              "label": "Citazione — Seconda frase",
               "widget": "string"
             },
             {
@@ -181,23 +157,8 @@
               "widget": "string"
             },
             {
-              "name": "contactEmphasis",
-              "label": "Contatti — Parole in rosso",
-              "widget": "string"
-            },
-            {
-              "name": "contactIntro",
-              "label": "Contatti — Introduzione",
-              "widget": "text"
-            },
-            {
-              "name": "galleryEyebrow",
-              "label": "Gallerie — Sopratitolo",
-              "widget": "string"
-            },
-            {
-              "name": "galleryTitle",
-              "label": "Gallerie — Titolo",
+              "name": "title",
+              "label": "Titolo",
               "widget": "string"
             },
             {
@@ -206,13 +167,57 @@
               "widget": "text"
             },
             {
+              "name": "newsEmpty",
+              "label": "Notizie — Testo in assenza di contenuti",
+              "widget": "string"
+            },
+            {
+              "name": "video",
+              "label": "Video di copertina",
+              "widget": "r2-file",
+              "kind": "video",
+              "required": false
+            },
+            {
               "name": "galleryEmpty",
               "label": "Gallerie — Testo in assenza di contenuti",
               "widget": "string"
             },
             {
-              "name": "newsEmpty",
-              "label": "Notizie — Testo in assenza di contenuti",
+              "name": "image",
+              "label": "Foto di copertina",
+              "widget": "r2-file",
+              "kind": "image",
+              "required": false
+            },
+            {
+              "name": "emphasis",
+              "label": "Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "contactEmphasis",
+              "label": "Contatti — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "quote",
+              "label": "Citazione",
+              "widget": "string"
+            },
+            {
+              "name": "buttonHref",
+              "label": "Destinazione pulsante",
+              "widget": "string"
+            },
+            {
+              "name": "welcomeEmphasis",
+              "label": "Presentazione — Parole in rosso",
+              "widget": "string"
+            },
+            {
+              "name": "galleryEmphasis",
+              "label": "Gallerie — Parole in rosso",
               "widget": "string"
             }
           ]
@@ -223,28 +228,28 @@
           "file": "src/data/site.json",
           "fields": [
             {
-              "name": "name",
-              "label": "Nome",
-              "widget": "string"
-            },
-            {
               "name": "domain",
               "label": "Dominio",
               "widget": "string"
             },
             {
-              "name": "description",
-              "label": "Descrizione",
-              "widget": "text"
+              "name": "legalName",
+              "label": "Titolare",
+              "widget": "string"
             },
             {
-              "name": "email",
-              "label": "Email",
+              "name": "vat",
+              "label": "Partita IVA",
               "widget": "string"
             },
             {
               "name": "city",
               "label": "Località",
+              "widget": "string"
+            },
+            {
+              "name": "name",
+              "label": "Nome",
               "widget": "string"
             },
             {
@@ -265,19 +270,19 @@
               ]
             },
             {
-              "name": "legalName",
-              "label": "Titolare",
-              "widget": "string"
-            },
-            {
               "name": "legalAddress",
               "label": "Indirizzo del titolare",
               "widget": "string"
             },
             {
-              "name": "vat",
-              "label": "Partita IVA",
+              "name": "email",
+              "label": "Email",
               "widget": "string"
+            },
+            {
+              "name": "description",
+              "label": "Descrizione",
+              "widget": "text"
             }
           ]
         },
@@ -491,7 +496,8 @@
         {
           "name": "description",
           "label": "Descrizione",
-          "widget": "text"
+          "widget": "text",
+          "required": false
         },
         {
           "name": "cover",
@@ -503,22 +509,8 @@
         {
           "name": "photos",
           "label": "Fotografie",
-          "widget": "list",
-          "summary": "{{fields.alt}}",
-          "fields": [
-            {
-              "name": "url",
-              "label": "Foto",
-              "widget": "r2-file",
-              "kind": "image",
-              "required": true
-            },
-            {
-              "name": "alt",
-              "label": "Descrizione della foto",
-              "widget": "string"
-            }
-          ]
+          "widget": "r2-gallery",
+          "required": false
         }
       ]
     },

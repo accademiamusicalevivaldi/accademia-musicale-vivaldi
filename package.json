@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
-    "build": "node scripts/validate.mjs && astro build && wrangler pages functions build --outfile dist/_worker.js",
+    "build": "node scripts/validate.mjs && astro build",
     "preview": "astro preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs",
     "cms:local": "decap-server",
-    "deploy": "wrangler pages deploy dist"
+    "deploy": "wrangler pages deploy dist",
+    "build:upload": "npm run build && wrangler pages functions build --outdir dist/_worker.js"
   },
   "dependencies": {
     "astro": "^5.13.0",

@@ -3,7 +3,7 @@
   "documentsTitle": "Le informazioni",
   "buttonLabel": "Scopri i corsi",
   "newsTitle": "Note da",
-  "galleryTitle": "La musica resta. Anche nelle immagini.",
+  "galleryTitle": "La musica resta. Anche nelle",
   "welcomeParagraphs": [
     "Si può cominciare per curiosità. Riprendere uno strumento lasciato da parte. O dare una direzione a un sogno.",
     "All’Accademia A. Vivaldi la musica è un percorso da costruire insieme: ascolto, studio e occasioni per condividere quello che impari."
@@ -38,5 +38,6 @@
   "contactEmphasis": "la tua.",
   "quote": "Ogni percorso ha un ritmo.",
   "buttonHref": "#corsi",
-  "welcomeEmphasis": "passione."
+  "welcomeEmphasis": "passione.",
+  "galleryEmphasis": "immagini."
 }
