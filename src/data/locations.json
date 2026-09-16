@@ -6,18 +6,11 @@
   "note": "I marker indicano le località, non gli indirizzi esatti delle aule. Contatta la segreteria per sapere dove si svolgono le lezioni.",
   "items": [
     {
-      "name": "Caselle di Altivole",
+      "name": "Altivole",
       "area": "Altivole · Treviso",
       "lat": 45.7438,
       "lng": 11.9808,
       "source": "https://www.italiamappata.it/veneto/tv/2963-caselle/"
-    },
-    {
-      "name": "Salvatronda",
-      "area": "Castelfranco Veneto · Treviso",
-      "lat": 45.67448,
-      "lng": 11.9766,
-      "source": "https://mapcarta.com/18682890"
     },
     {
       "name": "Villa d’Asolo",
@@ -25,13 +18,6 @@
       "lat": 45.77179,
       "lng": 11.90074,
       "source": "https://mapcarta.com/30244036"
-    },
-    {
-      "name": "Casella d’Asolo",
-      "area": "Asolo · Treviso",
-      "lat": 45.78957,
-      "lng": 11.92079,
-      "source": "https://mapcarta.com/N64778673"
     },
     {
       "name": "Onara",
