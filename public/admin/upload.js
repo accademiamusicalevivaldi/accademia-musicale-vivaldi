@@ -13,7 +13,7 @@ async function vivaldiUpload(file,kind){
 const R2Control=window.createClass({
  getInitialState(){return {busy:false,error:''};},
  isValid(){return this.state.busy?'Attendi la fine del caricamento.':this.state.error||true;},
- async upload(event){const file=event.target.files[0];if(!file)return;this.setState({busy:true,error:''});try{const url=await vivaldiUpload(file,this.props.field.get('kind')||'image');this.props.onChange(url);}catch(error){this.setState({error:error.message});}finally{this.setState({busy:false});event.target.value='';}},
+ async upload(event){const input=event.target;const file=input.files[0];if(!file)return;this.setState({busy:true,error:''});try{const url=await vivaldiUpload(file,this.props.field.get('kind')||'image');this.props.onChange(url);}catch(error){this.setState({error:error.message});}finally{this.setState({busy:false});input.value='';}},
  render(){const kind=this.props.field.get('kind')||'image';const value=this.props.value||'';return window.h('div',{},window.h('input',{id:this.props.forID,type:'file',disabled:this.state.busy,accept:kind==='pdf'?'.pdf':kind==='video'?'.mp4,.webm':'.jpg,.jpeg,.png,.webp',onChange:this.upload}),window.h('p',{role:'status'},this.state.busy?'Elaborazione e caricamento…':this.state.error||'Le foto vengono ridimensionate automaticamente. PDF: massimo 20 MB; video: 25 MB.'),value&&window.h('div',{},kind==='image'&&window.h('img',{src:value,alt:'Anteprima',style:{maxWidth:'220px',maxHeight:'160px'}}),window.h('a',{href:value,target:'_blank',rel:'noopener'},' Apri file'),window.h('button',{type:'button',disabled:this.state.busy,onClick:()=>{this.props.onChange('');this.setState({error:''});}},'Rimuovi dal contenuto')));}
 });
 CMS.registerWidget('r2-file',R2Control);
