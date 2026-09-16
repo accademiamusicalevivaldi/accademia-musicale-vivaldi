@@ -1,9 +1,9 @@
 {
-  "name": "Accademia Musicale A. Vivaldi",
   "domain": "https://www.accademiamusicalevivaldi.com",
-  "description": "Accademia Musicale A. Vivaldi: corsi di musica, notizie, gallerie dei saggi e materiali didattici.",
-  "email": "info@accademiamusicalevivaldi.com",
-  "city": "Caselle di Altivole · Treviso",
+  "legalName": "Giancarlo Tartaggia",
+  "vat": "04347630289",
+  "city": "Altivole · Treviso",
+  "name": "Accademia Musicale A. Vivaldi",
   "contacts": [
     {
       "name": "Maestro Giancarlo Tartaggia",
@@ -14,7 +14,7 @@
       "phone": "+39 349 364 9563"
     }
   ],
-  "legalName": "Giancarlo Tartaggia",
   "legalAddress": "Via Nicolina 9, 35018 San Martino di Lupari (PD)",
-  "vat": "04347630289"
+  "email": "info@accademiamusicalevivaldi.com",
+  "description": "Accademia Musicale A. Vivaldi: corsi di musica, notizie, gallerie dei saggi e materiali didattici."
 }
