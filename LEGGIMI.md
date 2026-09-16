@@ -1,8 +1,14 @@
 # Accademia Musicale A. Vivaldi — pubblicazione
 
+## Correzione deploy — 16 settembre 2026
+
+Il precedente comando `wrangler pages functions build --outfile dist/_worker.js` generava un contenitore multipart, non un file JavaScript pubblicabile. Ora `npm run build` genera il sito e Cloudflare Pages compila automaticamente la cartella `functions`. Per un pacchetto completo da caricamento manuale usa `npm run build:upload`: genera la cartella `_worker.js` con un modulo JavaScript verificabile.
+
+Nel progetto Cloudflare esistente il comando di generazione è stato corretto direttamente in `node scripts/validate.mjs && npx astro build`, compatibile anche con i sorgenti attualmente su GitHub. Non ripristinare il vecchio comando finché il package.json remoto non è stato aggiornato.
+
 ## Cosa è pronto
 
-Il sito include homepage modificabile, copertina foto/video, corsi con icone, sette sedi con mappa OpenStreetMap, contatti dei due insegnanti, notizie, gallerie filtrabili per anno e località, album con fotografie ingrandibili, documenti PDF scaricabili e Privacy Policy.
+Il sito include homepage modificabile, copertina foto/video, corsi con icone, sedi modificabili con mappa OpenStreetMap, contatti dei due insegnanti, notizie, gallerie filtrabili per anno e località, album con fotografie ingrandibili, documenti PDF scaricabili e Privacy Policy.
 
 Il pannello Decap è in `/admin/`. La configurazione indica già:
 
@@ -11,7 +17,7 @@ Il pannello Decap è in `/admin/`. La configurazione indica già:
 - ramo: `main`
 - bucket R2: `accademia-musicale-vivaldi`
 
-**Stato della consegna:** progetto costruito e verificato localmente. Il repository pubblico è stato verificato: esiste, è vuoto e usa il ramo main. Il bucket è configurato nei file ma non è stato verificato tramite accesso al tuo account. Nessun servizio remoto è stato modificato. Il sito non è stato pubblicato da questa sessione. Mancano l'attivazione del progetto Pages, l'app OAuth GitHub e i relativi valori riservati. Non servono chiavi S3/R2 nel browser.
+**Stato:** il sito è pubblicato su Cloudflare Pages e il dominio è collegato. Questo aggiornamento include il caricamento multiplo delle foto e le correzioni grafiche. Le istruzioni di attivazione qui sotto restano come riferimento per eventuali nuove installazioni.
 
 ## 1. Carica i sorgenti su GitHub
 
@@ -31,7 +37,7 @@ In Cloudflare apri Workers & Pages e crea un progetto **Pages con integrazione G
 | Directory principale | radice del repository |
 | Versione Node | `22` (variabile `NODE_VERSION`) |
 
-La compilazione genera il sito e il file `_worker.js`, necessario per l'accesso amministrativo e R2. Collega il dominio `www.accademiamusicalevivaldi.com` tramite la sezione **Custom domains** del progetto. Il solo puntamento DNS non sostituisce questo collegamento. Configura anche il dominio senza `www` con reindirizzamento al dominio principale, se desiderato.
+La compilazione genera il sito; Cloudflare compila automaticamente le funzioni amministrative e R2 dalla cartella `functions`. Collega il dominio `www.accademiamusicalevivaldi.com` tramite la sezione **Custom domains** del progetto. Il solo puntamento DNS non sostituisce questo collegamento. Configura anche il dominio senza `www` con reindirizzamento al dominio principale, se desiderato.
 
 Usa l'integrazione Git: quando salvi un contenuto con Decap, viene creato un aggiornamento nel repository e Cloudflare ricostruisce il sito automaticamente. Attendi il completamento della compilazione prima di controllare la pagina pubblica.
 
@@ -70,7 +76,7 @@ Ridistribuisci il progetto dopo aver impostato binding e segreti. Accedi a `http
 - **Corsi:** descrizioni e percorsi delle icone già incluse.
 - **Sedi e mappa:** località e coordinate indicative.
 - **Notizie:** titolo, data, riassunto, copertina e testo.
-- **Gallerie:** titolo, data, località e foto. Aggiungi una voce per ogni fotografia, carica il file e descrivilo. Le voci possono essere riordinate o rimosse.
+- **Gallerie:** titolo, data, località e foto. Usa **Aggiungi più fotografie** e seleziona più file insieme. Le foto vengono ridimensionate e caricate automaticamente; le descrizioni delle foto e dell’album sono facoltative. Puoi riordinare o rimuovere le foto. In caso di errore puoi riprovare soltanto i file non riusciti, senza ricaricare quelli già aggiunti.
 - **Materiale didattico:** titolo, categoria, descrizione e PDF.
 - **Privacy Policy:** testo dell'informativa e data di aggiornamento.
 
@@ -95,7 +101,7 @@ L'informativa include i dati del titolare forniti e l'accenno a OpenStreetMap. V
 
 ## Alternativa: caricamento immediato dei file compilati
 
-La cartella `sito-compilato` contiene già tutti i file da caricare con Direct Upload su Pages, incluso `_worker.js`. Devi comunque configurare binding, variabili e segreti. **Il caricamento manuale da solo non attiva gli aggiornamenti automatici dopo i salvataggi Decap.** Per la gestione ordinaria usa il progetto Pages con integrazione Git descritto sopra. Un progetto Pages nato con Direct Upload non si converte direttamente in un progetto Git: crealo con Git dall'inizio se vuoi usare il pannello stabilmente.
+La cartella `sito-compilato`, generata con `npm run build:upload`, contiene già tutti i file da caricare con Direct Upload su Pages, inclusa la cartella `_worker.js`. Devi comunque configurare binding, variabili e segreti. **Il caricamento manuale da solo non attiva gli aggiornamenti automatici dopo i salvataggi Decap.** Per la gestione ordinaria usa il progetto Pages con integrazione Git descritto sopra. Un progetto Pages nato con Direct Upload non si converte direttamente in un progetto Git: crealo con Git dall'inizio se vuoi usare il pannello stabilmente.
 
 ## Comandi per la manutenzione
 
