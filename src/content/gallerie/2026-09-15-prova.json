@@ -1,0 +1,14 @@
+{
+  "draft": true,
+  "title": "prova",
+  "date": "2026-09-16",
+  "location": "montebelluna",
+  "description": "prova foto galleria",
+  "cover": "/media/images/057a0872-c7af-455e-9b20-3ff8e1714d0e.webp",
+  "photos": [
+    {
+      "url": "/media/images/cd6155af-5911-4407-bcfd-4553ab9fa124.webp",
+      "alt": "dd"
+    }
+  ]
+}
